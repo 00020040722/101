@@ -1,0 +1,100 @@
+/* === 整體風格 === */
+body {
+  background-color: #0a0a0f;
+  color: #f0eaff;
+  font-family: 'Press Start 2P', monospace;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* === 主要內容容器 === */
+.container {
+  position: relative;
+  padding: 40px;
+  border: 2px solid #2b004d;
+  background-color: #140022;
+  box-shadow: 0 0 20px rgba(180, 0, 255, 0.4);
+  border-radius: 8px;
+}
+
+/* 標題閃爍 */
+h1 {
+  color: #bb86fc;
+  text-shadow: 0 0 8px #b200ff, 0 0 20px #6b00b3;
+  animation: flicker 2s infinite;
+}
+
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    opacity: 0.4;
+  }
+}
+
+/* === 文字區 === */
+.info p {
+  margin: 8px 0;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+/* === 像素火焰區 === */
+.pixel-fire {
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+/* 單個火焰像素 */
+.flame {
+  width: 8px;
+  height: 16px;
+  background-color: #b200ff;
+  animation: burn 0.6s infinite alternate;
+  image-rendering: pixelated;
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(187, 134, 252, 0.8);
+}
+
+/* 不同火焰層級 */
+.flame1 {
+  animation-delay: 0s;
+  background-color: #9a00e6;
+}
+.flame2 {
+  animation-delay: 0.15s;
+  background-color: #bb33ff;
+}
+.flame3 {
+  animation-delay: 0.3s;
+  background-color: #cc66ff;
+}
+.flame4 {
+  animation-delay: 0.45s;
+  background-color: #e0aaff;
+}
+
+/* 火焰跳動動畫 */
+@keyframes burn {
+  0% {
+    transform: scaleY(1) translateY(0);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scaleY(1.6) translateY(-8px);
+    opacity: 0.6;
+  }
+}
